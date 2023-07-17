@@ -1,12 +1,7 @@
 #!/bin/bash
 
 DATA_DIR=/data/geth-data
-
-runWithDelay () {
-    sleep $1;
-    shift;
-    "${@}";
-}
+MAINNET=false
 
 wget https://storage.googleapis.com/golang/go1.19.linux-amd64.tar.gz
 tar -xvf go1.19.linux-amd64.tar.gz
@@ -28,5 +23,10 @@ echo "" >> ~/.bashrc
 
 git clone https://github.com/maxxchain/genesis-block
 mkdir $DATA_DIR
-geth --datadir $DATA_DIR init ./genesis-block/testnet.json
 
+if $MAINNET
+then
+    geth --datadir $DATA_DIR init ./genesis-block/testnet.json
+else 
+    geth --datadir $DATA_DIR init ./genesis-block/mainnet.json
+fi

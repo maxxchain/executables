@@ -9,6 +9,12 @@ IS_ARCHIVE_NODE=true
 IS_LIGHT_NODE=false
 IS_FULL_NODE=false
 
+runWithDelay () {
+    sleep $1;
+    shift;
+    "${@}";
+}
+
 runWithDelay $DELAY_SEC geth attach --exec admin.nodeInfo.enode $DATA_DIR/geth.ipc &
 
 if $IS_ARCHIVE_NODE
