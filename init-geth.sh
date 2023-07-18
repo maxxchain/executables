@@ -17,16 +17,12 @@ sudo apt-get update && sudo apt-get dist-upgrade -y
 sudo apt-get install build-essential make git screen unzip curl nginx pkg-config nmap xterm screen tcl -y
 make geth
 
-echo "" >> ~/.bashrc
-echo "export PATH=/root/go-ethereum/build/bin:$PATH" >>  ~/.bashrc
-echo "" >> ~/.bashrc
-
 git clone https://github.com/maxxchain/genesis-block
 mkdir $DATA_DIR
 
 if $MAINNET
 then
-    geth --datadir $DATA_DIR init ./genesis-block/testnet.json
+    ./build/bin/geth --datadir $DATA_DIR init ./genesis-block/testnet.json
 else 
-    geth --datadir $DATA_DIR init ./genesis-block/mainnet.json
+    ./build/bin/geth --datadir $DATA_DIR init ./genesis-block/mainnet.json
 fi
