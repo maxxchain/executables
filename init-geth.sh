@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DATA_DIR=./data
-MAINNET=false
+MAINNET=true
 
 wget https://storage.googleapis.com/golang/go1.19.linux-amd64.tar.gz
 tar -xvf go1.19.linux-amd64.tar.gz
