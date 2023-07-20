@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATA_DIR=/data/geth-data
+DATA_DIR=./data
 MAINNET=false
 
 wget https://storage.googleapis.com/golang/go1.19.linux-amd64.tar.gz
