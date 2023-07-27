@@ -22,7 +22,7 @@ mkdir $DATA_DIR
 
 if $MAINNET
 then
-    ./build/bin/geth --datadir $DATA_DIR init ./genesis-block/testnet.json
-else 
     ./build/bin/geth --datadir $DATA_DIR init ./genesis-block/mainnet.json
+else 
+    ./build/bin/geth --datadir $DATA_DIR init ./genesis-block/testnet.json
 fi
